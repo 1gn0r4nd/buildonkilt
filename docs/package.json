@@ -1,0 +1,23 @@
+{
+  "name": "buildonkilt",
+  "version": "0.0.1",
+  "description": "Inform visitors about KILT blockchains capabilities, development opportunities, and showcase partners with working products.",
+  "main": "index.js",
+  "authors": {
+    "name": "1gn0r4nd",
+    "email": "1.g.n0r.4nd@gmail.com"
+  },
+  "repository": "git@github.com:1gn0r4nd/buildonkilt.git/buildonkilt",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.10",
+    "@vuepress/plugin-medium-zoom": "^1.9.10"
+  }
+}
