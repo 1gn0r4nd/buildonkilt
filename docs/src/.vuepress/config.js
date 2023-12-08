@@ -1,39 +1,28 @@
+import { umamiAnalyticsPlugin } from 'vuepress-plugin-umami-analytics'
+import { defaultTheme } from 'vuepress'
+
 const { description } = require('../../package')
 
-module.exports = {
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#title
-   */
-  title: 'Build on Kilt',
-  /**
-   * Ref：https://v1.vuepress.vuejs.org/config/#description
-   */
-  description: description,
+let isProd = process.env.NODE_ENV === 'production'
 
-  /**
-   * Extra tags to be injected to the page HTML `<head>`
-   *
-   * ref：https://v1.vuepress.vuejs.org/config/#head
-   */
-  head: [
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
-    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
-  ],
-
-  /**
-   * Theme configuration, here is the default theme configuration for VuePress.
-   *
-   * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
-   */
-  themeConfig: {
-    repo: '',
-    editLinks: false,
-    docsDir: '',
-    editLinkText: '',
-    lastUpdated: false,
+export default {
+  locales: {
+    '/': {
+      lang: 'en-US',
+    }
+  },
+  theme: defaultTheme({
+    // default theme config
+    colorModeSwitch: true,
     logo: '/img/logo.png',
-    nav: [
+    logoDark: '/img/logo.png',
+    repo: 'https://github.com/1gn0r4nd/buildonkilt',
+    repoLabel: 'GitHub',
+    navbar: [
+      {
+        text: 'Home',
+        link: '/',
+      },
       {
         text: 'Learn',
         link: '/learn/',
@@ -42,17 +31,12 @@ module.exports = {
         text: 'Build',
         link: '/build/',
       },
-      {
-        text: 'Config',
-        link: '/config/'
-      },
-      {
-        text: 'Contribute',
-        items: [
-          { text: 'GitHub', link: 'https://github.com/1gn0r4nd/buildonkilt', rel: false },
-          { text: 'Japanese', link: '/language/japanese/' }
-        ]
-      },
+      // {
+      //   text: 'Contribute',
+      //   children: [
+      //     { text: 'GitHub', link: 'https://github.com/1gn0r4nd/buildonkilt', rel: false }
+      //   ]
+      // },
       {
         text: 'Kilt',
         link: 'https://www.kilt.io/',
@@ -62,62 +46,47 @@ module.exports = {
     sidebar: {
       '/learn/': [
         {
-          title: 'About Us',
+          text: 'About Us',
+          link: '/learn/',
           collapsable: true,
           children: [
-            'goal',
-            'target_audience',
-            'affiliation'
-          ]
-        },
-        {
-          title: 'KILT',
-          collapsable: true,
-          children: [
-            'DID',
-            'CType',
-            'Issuer',
-            'Credential',
-            'Attester',
-          ]
-        },
-        {
-          title: 'Terminology',
-          collapsable: true,
-          children: [
-            'DID',
-            'CType',
-            'Issuer',
-            'Credential',
-            'Attester',
-          ]
-        },
-        {
-          title: 'Success stories',
-          collapsable: true,
-          children: [
-            'socialkyc'
-          ]
-        }
 
+            'about_goal',
+            'about_target_audience',
+            'about_affiliation'
+          ]
+        },
+        {
+          text: 'KILT',
+          collapsable: true,
+          children: [
+            'kilt_what',
+            'kilt_links.md'
+          ]
+        },
+        {
+          text: 'Terminology',
+          collapsable: true,
+          children: [
+            'terminology_identity'
+          ]
+        },
       ],
       '/build/': [
         {
-          title: 'Developing on KILT',
-          collapsable: false,
+          text: 'Build',
+          link: '/build/',
+          collapsable: true,
           children: [
-            '',
+            'build_requirements.md',
+            'build_wallet.md',
+            'build_blockchain.md',
+            'build_dapp.md',
+            'build_examples.md'
           ]
-        }
+        },
       ]
     }
-  },
-
-  /**
-   * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
-   */
-  plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
-  ]
+  }),
 }
+

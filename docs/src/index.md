@@ -1,15 +1,15 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: /img/hero.png
 tagline: Inform visitors about KILT blockchains capabilities, development opportunities, and showcase partners with working products.
 actionText: Quick Start →
 actionLink: /build/
 features:
-- title: Feature 1 Title
-  details: Feature 1 Description
-- title: Feature 2 Title
-  details: Feature 2 Description
-- title: Feature 3 Title
-  details: Feature 3 Description
+- title: Learn
+  details: Explain the information in a concise manner
+- title: Build
+  details: Help devs to understand
+- title: Contribute
+  details: Help us grow
 footer: Made by 1gn0r4nd with ❤️
 ---
